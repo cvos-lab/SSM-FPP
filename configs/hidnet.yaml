@@ -1,0 +1,15 @@
+# HiDNet baseline
+model: hidnet
+in_channels: 6
+out_channels: 1
+base_filters: 32
+dropout: 0.2
+alpha: 0.3
+
+# training (identical for every model)
+input_mode: "6ch"
+per_gpu_batch_size: 1      # 4 GPUs -> effective batch 4
+validation_split: 0.1
+learning_rate: 1.0e-4
+epochs: 400                # cosine annealing over all epochs
+eta_min: 1.0e-6

@@ -1,0 +1,17 @@
+# NAFNet baseline (SIDD width-32 configuration)
+model: nafnet
+in_channels: 6
+out_channels: 1
+width: 32
+enc_blocks: [2, 2, 4, 8]
+middle_blocks: 12
+dec_blocks: [2, 2, 2, 2]
+drop_prob: 0.0
+
+# training (identical for every model)
+input_mode: "6ch"
+per_gpu_batch_size: 1      # 4 GPUs -> effective batch 4
+validation_split: 0.1
+learning_rate: 1.0e-4
+epochs: 400                # cosine annealing over all epochs
+eta_min: 1.0e-6

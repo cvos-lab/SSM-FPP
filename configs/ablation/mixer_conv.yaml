@@ -1,0 +1,18 @@
+# Ablation, context mixer: expanded depthwise convolution (all else as ssm_fpp.yaml)
+model: ssm_fpp
+in_channels: 6
+out_channels: 1
+dim: 48
+num_blocks: [2, 4, 4, 6]   # encoder 1-3 and bottleneck; decoder mirrors the encoder
+d_state: 16
+d_conv: 4
+expand: 2
+mixer: conv
+
+# training (identical for every model)
+input_mode: "6ch"
+per_gpu_batch_size: 1      # 4 GPUs -> effective batch 4
+validation_split: 0.1
+learning_rate: 1.0e-4
+epochs: 400                # cosine annealing over all epochs
+eta_min: 1.0e-6

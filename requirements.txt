@@ -1,0 +1,9 @@
+# tested with Python 3.11, CUDA 12.4
+torch==2.6.0
+torchmetrics==1.9.0
+mamba-ssm==2.3.1
+einops
+numpy
+pyyaml
+pillow
+tqdm

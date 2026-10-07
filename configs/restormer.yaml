@@ -1,0 +1,17 @@
+# Restormer baseline (published default configuration)
+model: restormer
+in_channels: 6
+out_channels: 1
+dim: 48
+num_blocks: [4, 6, 6, 8]
+num_heads: [1, 2, 4, 8]
+ffn_expansion: 2.66
+bias: false
+
+# training (identical for every model)
+input_mode: "6ch"
+per_gpu_batch_size: 1      # 4 GPUs -> effective batch 4
+validation_split: 0.1
+learning_rate: 1.0e-4
+epochs: 400                # cosine annealing over all epochs
+eta_min: 1.0e-6
